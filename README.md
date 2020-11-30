@@ -169,6 +169,38 @@ dependencies:
    </array>
    ```
 
+
+
+3. AppDelegate.swift 수정
+
+   Passikey sdk를 사용하기 위해서는 UINavationController가 RootViewController에 존재해야 합니다.
+   다음과 같이 코드를 변경해야 합니다.
+
+   ```swift
+   import UIKit
+   import Flutter
+   
+   @UIApplicationMain
+   @objc class AppDelegate: FlutterAppDelegate {
+     override func application(
+       _ application: UIApplication,
+       didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+     ) -> Bool {
+       GeneratedPluginRegistrant.register(with: self)
+       
+       let flutterViewController: FlutterViewController = window?.rootViewController as! FlutterViewController
+       let navigationController = UINavigationController(rootViewController: flutterViewController);
+       navigationController.setNavigationBarHidden(true, animated: false);
+           
+       self.window = UIWindow(frame: UIScreen.main.bounds);
+       self.window.rootViewController = navigationController;
+       self.window.makeKeyAndVisible();
+   
+       return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+     }
+   }
+   ```
+
    
 
 ## 구현 가이드
