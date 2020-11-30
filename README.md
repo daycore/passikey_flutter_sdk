@@ -118,6 +118,22 @@ dependencies:
 
 
 
+4. `android/build.gradle`파일에 repository를 추가합니다.
+
+   ```groovy
+   allprojects {
+       repositories {
+           google()
+           jcenter()
+           maven {
+               url "${project(':passikey_flutter_sdk').projectDir}/libs"
+           }
+       }
+   }
+   ```
+
+   
+
 ### iOS
 
 #### SDK 설정
