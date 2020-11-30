@@ -1,0 +1,6 @@
+framework module PASSIKEYauth {
+  umbrella header "PASSIKEYauth.h"
+
+  export *
+  module * { export * }
+}

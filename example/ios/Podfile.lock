@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - passikey_flutter_sdk (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - passikey_flutter_sdk (from `.symlinks/plugins/passikey_flutter_sdk/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  passikey_flutter_sdk:
+    :path: ".symlinks/plugins/passikey_flutter_sdk/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  passikey_flutter_sdk: 26e897da2d58479dc7212924812e54fbae3b234b
+
+PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+
+COCOAPODS: 1.10.0
