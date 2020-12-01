@@ -19,7 +19,7 @@ Flutter용 Passikey SDK 입니다.
 
 그래서 `PASSIKEY_LOGIN_SDK_v0.0.7_release.aar` 을 디컴파일해서 `AndroidManifest.xml`파일에서 `PassikeyLoginActivity`테마를 수정해서 재 컴파일해서 사용하고 있습니다.
 
-원본
+수정본
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -43,7 +43,7 @@ Flutter용 Passikey SDK 입니다.
 </manifest>
 ```
 
-수정본
+원본
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
