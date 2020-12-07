@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:passikey_flutter_sdk/passikey_flutter_sdk.dart';
 
 void main() {
@@ -14,6 +15,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final _globalKey = GlobalKey<ScaffoldState>();
+
   bool _obscureSecretKey = true;
   String _loginStateToken = '';
   LoginResult _passikeyLoginResult;
@@ -22,6 +25,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        key: _globalKey,
         appBar: AppBar(
           title: const Text('Passikey SDK Example'),
         ),
@@ -101,12 +105,20 @@ class _MyAppState extends State<MyApp> {
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                   child: RaisedButton(
                     onPressed: () async {
-                      final result = await PassikeyFlutterSdk.instance
-                          .login(stateToken: _loginStateToken);
+                      try {
+                        final result = await PassikeyFlutterSdk.instance
+                            .login(stateToken: _loginStateToken);
 
-                      setState(() {
-                        _passikeyLoginResult = result;
-                      });
+                        setState(() {
+                          _passikeyLoginResult = result;
+                        });
+                      } on PlatformException catch (e) {
+                        _showErrorSnackBar(
+                            message:
+                                '${e.message}\n[${e.details['errorCode']}]${e.details['errorName']}');
+                      } catch (e) {
+                        _showErrorSnackBar(message: e.toString());
+                      }
                     },
                     child: Text('로그인 하기'),
                   ),
@@ -117,5 +129,9 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
     );
+  }
+
+  _showErrorSnackBar({@required String message}) {
+    _globalKey.currentState.showSnackBar(SnackBar(content: Text(message)));
   }
 }
