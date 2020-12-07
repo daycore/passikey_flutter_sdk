@@ -1,6 +1,6 @@
 PODS:
   - Flutter (1.0.0)
-  - passikey_flutter_sdk (0.0.1):
+  - passikey_flutter_sdk (0.0.3):
     - Flutter
 
 DEPENDENCIES:
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
-  passikey_flutter_sdk: 26e897da2d58479dc7212924812e54fbae3b234b
+  passikey_flutter_sdk: 9dfca5c166f713bae974706aef09f175da8d1fc0
 
 PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
 

@@ -1,10 +1,12 @@
+require 'yaml'
+pubspec = YAML.load_file('../pubspec.yaml')
 #
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
-# Run `pod lib lint passikey_flutter_sdk.podspec' to validate before publishing.
+# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
 #
+
 Pod::Spec.new do |s|
   s.name             = 'passikey_flutter_sdk'
-  s.version          = '0.0.1'
+  s.version          = pubspec['version']
   s.summary          = 'Passikey Flutter SDK'
   s.description      = <<-DESC
 Passikey Flutter SDK
