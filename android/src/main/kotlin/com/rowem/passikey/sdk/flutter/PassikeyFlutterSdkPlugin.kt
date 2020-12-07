@@ -30,7 +30,7 @@ class PassikeyFlutterSdkPlugin : FlutterPlugin, MethodCallHandler, ActivityAware
             passikeySDK = PassikeySDK.getInstance()
             result.success(true)
         } catch (e: Exception) {
-            result.error("passikey_sdk", e.message, e)
+            result.error("passikey_sdk", e.message, null)
         }
     }
 
@@ -58,7 +58,7 @@ class PassikeyFlutterSdkPlugin : FlutterPlugin, MethodCallHandler, ActivityAware
                     result.success(mapOf("statToken" to passikeyLogin.statToken, "ptnToken" to passikeyLogin.ptnToken))
                 }
             } else {
-                result.error("passikey_sdk", errorInfo.name, errorInfo)
+                result.error("passikey_sdk", errorInfo.name, mapOf("errorCode" to errorInfo.code, "errorName" to errorInfo.name))
             }
         }
     }
