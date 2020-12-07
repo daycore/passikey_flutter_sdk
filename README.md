@@ -81,7 +81,7 @@ Passikey Flutter SDK를 사용하기 위해서 가장 먼저 `pubspec.yaml`파�
 
 ```yaml
 dependencies:
-  passikey_flutter_sdk: ^0.0.2
+  passikey_flutter_sdk: ^0.0.3
 ```
 
 
