@@ -82,6 +82,9 @@ class _MyAppState extends State<MyApp> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: TextFormField(
+                  inputFormatters: [
+                    FilteringTextInputFormatter.allow(RegExp("[a-zA-Z]"))
+                  ],
                   decoration: InputDecoration(
                       hintText: 'Login State Token',
                       labelText: 'Login State Token',
@@ -115,7 +118,7 @@ class _MyAppState extends State<MyApp> {
                       } on PlatformException catch (e) {
                         _showErrorSnackBar(
                             message:
-                                '${e.message}\n[${e.details['errorCode']}]${e.details['errorName']}');
+                                '${e.message}\n[${e.details['errorCode']}] ${e.details['errorName']}');
                       } catch (e) {
                         _showErrorSnackBar(message: e.toString());
                       }
