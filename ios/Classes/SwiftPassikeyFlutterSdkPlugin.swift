@@ -110,21 +110,10 @@ public class SwiftPassikeyFlutterSdkPlugin: NSObject, FlutterPlugin, FlutterPass
                 "ptnToken":PassikeyManager.getInstance().getPartnerToken()
             ])
         } else {
-            var message: String?
-            
-            if errInfo?.object(forKey:"result_code") != nil {
-                if errInfo?.object(forKey:"err_code") != nil {
-                    message = "ResultValue:\(errInfo?.object(forKey:"result_code") ?? "") (\(errInfo?.object(forKey:"err_code") ?? ""))"
-                } else {
-                    message = "ResultValue:\(errInfo?.object(forKey:"result_code") ?? "")"
-                }
-            } else if errInfo?.object(forKey:"result_code") == nil &&  errInfo?.object(forKey:"err_code") != nil {
-                message = "ResultValue:\(errInfo?.object(forKey:"err_code") ?? "")"
-            } else if errInfo?.object(forKey:"code") != nil {
-                message = "ResultValue:\(errInfo?.object(forKey:"code") ?? "")"
-            }
-            
-            loginResult(FlutterError.init(code: "passikey_sdk", message: message ?? "로그인에 실패하였습니다", details: errInfo))
+            loginResult(FlutterError.init(
+                            code: "passikey_sdk",
+                            message: "로그인에 실패했습니다",
+                            details: ["errorCode": errInfo?.object(forKey:"err_code") ?? "", "errorName": ""]))
         }
     }
 }
